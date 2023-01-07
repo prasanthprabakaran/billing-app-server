@@ -11,6 +11,7 @@ import { userRouter } from './routes/userRoutes.js';
 import { InvoiceRouter } from './routes/invoiceRoutes.js';
 import { ClientRouter } from './routes/clientRoutes.js';
 import { ProfileRouter } from './routes/profileRouter.js';
+import { rootRouter } from './routes/rootRouter.js';
 import errorHandler from "./middleware/errorHandler.js";
 import { logger,logEvents } from "./middleware/logger.js";
 import pdfTemplate from './documents/index.js';
@@ -34,6 +35,7 @@ app.use(cookieParser())
 const PORT = process.env.PORT || 4000;
 
 app.use('/', express.static(path.join(__dirname, 'public')))
+app.use("/", rootRouter);
 app.use("/users",userRouter);
 app.use("/clients",ClientRouter);
 app.use("/profiles",ProfileRouter);
