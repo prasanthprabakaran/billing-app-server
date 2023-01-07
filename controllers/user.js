@@ -113,9 +113,9 @@ export const forgotPassword = (req, res) => {
             subject: 'Password reset request',
             html: `
                     <p>You requested for password reset from Arc Invoicing application</p>
-                    <h5>Please click this <a href="http://localhost:3000/reset/${token}">link</a> to reset your password</h5>
+                    <h5>Please click this <a href="${process.env.ORIGIN}/reset/${token}">link</a> to reset your password</h5>
                     <p>Link not clickable?, copy and paste the following url in your address bar.</p>
-                    <p>http://localhost:3000/reset/${token}</p>
+                    <p>${process.env.ORIGIN}/reset/${token}</p>
                     <P>If this was a mistake, just ignore this email and nothing will happen.</P>
                     `,
           });
